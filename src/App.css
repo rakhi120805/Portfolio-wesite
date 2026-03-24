@@ -1,0 +1,33 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.global-spline-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: auto;
+  opacity: 0.6; /* Dim to let text stand out */
+  filter: contrast(1.1); /* Keep the natural dark futuristic look */
+}
+
+main {
+  width: 100%;
+  position: relative;
+  z-index: 1; /* Keep content above the fixed background */
+}
+
+/* Subtle section separators */
+section:not(:first-child)::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, var(--border-subtle) 50%, transparent 95%);
+  margin-bottom: 0;
+}

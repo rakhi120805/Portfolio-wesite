@@ -1,0 +1,182 @@
+.projects {
+  padding: 100px 0 80px;
+  position: relative;
+}
+
+.projects__title-area {
+  margin-bottom: 50px;
+}
+
+.projects__desc {
+  margin-top: 16px;
+  max-width: 550px;
+}
+
+.projects__grid-wrapper {
+  position: relative;
+}
+
+.projects__neural-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.project-card__agent-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.75rem;
+  color: #00E5FF;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00E5FF;
+  animation: agentPulse 2s infinite ease-in-out;
+}
+
+@keyframes agentPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+.project-card__number {
+  margin-bottom: 16px;
+}
+
+.project-card__number span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-highlight));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.5;
+}
+
+.project-card__content h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.project-card__content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-card__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-card__tool {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.75rem;
+  color: #00E5FF;
+  background: rgba(0, 229, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 4px; /* Techy sharp corners */
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-card__links {
+  display: flex;
+  gap: 16px;
+}
+
+.project-card__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.project-card__link:hover {
+  color: var(--accent-primary);
+}
+
+/* Neural flow card sequence — alternate left/right for visual flow */
+.project-card:nth-child(odd) {
+  grid-column: 1;
+}
+
+.project-card:nth-child(even) {
+  grid-column: 2;
+  margin-top: 40px;
+}
+
+.project-card:first-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 80px 0 60px;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card:nth-child(odd),
+  .project-card:nth-child(even),
+  .project-card:first-child {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  .project-card {
+    padding: 24px 20px;
+  }
+
+  .projects__neural-canvas {
+    display: none;
+  }
+}

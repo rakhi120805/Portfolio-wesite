@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  /* Soft Dark Editorial Theme ("Eraf Dark") */
+  --bg-primary: #0A0A0A;
+  --bg-card: #141414;
+  --bg-card-hover: #1C1C1C;
+  
+  --text-primary: #F5F5F5;
+  --text-secondary: #A0A0A0;
+  --text-muted: #666666;
+  
+  --accent-primary: #EEEEEE; /* Stark stark white/off-white */
+  --accent-secondary: #CCCCCC;
+  --accent-highlight: #FFFFFF;
+  
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-glow: rgba(255, 255, 255, 0.2);
+  --accent-glow: rgba(255, 255, 255, 0.1); 
+
+  
+  /* Typography */
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  --section-max-width: 1200px;
+  --section-padding: 0 clamp(20px, 5vw, 80px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-primary);
+}
+
+::selection {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-warm);
+  border-radius: 3px;
+}
+
+.section-container {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--section-padding);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title span {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent-primary);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-highlight));
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Glow button */
+.glow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-warm));
+  color: var(--bg-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.glow-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.03);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.glow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.glow-btn:hover::before {
+  left: 100%;
+}
+
+/* Utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 0 20px;
+  }
+}

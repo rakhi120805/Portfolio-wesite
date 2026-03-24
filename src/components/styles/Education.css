@@ -1,0 +1,136 @@
+.education {
+  padding: 100px 0 80px;
+  position: relative;
+}
+
+.education__title-area {
+  margin-bottom: 60px;
+}
+
+.education__timeline {
+  position: relative;
+  padding-left: 60px;
+  max-width: 700px;
+}
+
+.education__timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);
+}
+
+.education__card {
+  position: relative;
+  margin-bottom: 48px;
+  padding: 28px 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.education__card:hover {
+  transform: translateX(8px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.education__card--current {
+  border-color: var(--accent-primary);
+  background: var(--bg-card-hover);
+}
+
+.education__card--current::after {
+  content: 'Current';
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+  background: rgba(232, 168, 124, 0.12);
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.education__card-dot {
+  position: absolute;
+  left: -52px;
+  top: 28px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+.education__year {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.education__card h3 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin: 6px 0 4px;
+  font-weight: 600;
+}
+
+.education__institution {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.education__detail {
+  display: inline-block;
+}
+
+.education__detail span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: rgba(181, 132, 80, 0.1);
+  padding: 4px 14px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .education {
+    padding: 80px 0 60px;
+  }
+
+  .education__timeline {
+    padding-left: 48px;
+  }
+
+  .education__timeline-line {
+    left: 14px;
+  }
+
+  .education__card-dot {
+    left: -44px;
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+
+  .education__card {
+    padding: 22px 20px;
+  }
+}

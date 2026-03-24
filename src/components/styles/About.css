@@ -1,0 +1,83 @@
+.about {
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.about__text {
+  max-width: 700px;
+}
+
+.about__description {
+  font-size: 1.05rem;
+  margin-top: 20px;
+}
+
+.about__passions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.about__passion-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.about__passion-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow);
+  transform: translateY(-4px);
+}
+
+.about__passion-card:hover::before {
+  opacity: 1;
+}
+
+.about__passion-icon {
+  font-size: 2rem;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(232, 168, 124, 0.08);
+  border-radius: 14px;
+}
+
+.about__passion-card h4 {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.about__passion-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 0 60px;
+  }
+
+  .about__passions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
