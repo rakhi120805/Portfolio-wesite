@@ -62,7 +62,7 @@ const Hero = ({ isIntroFinished }: HeroProps) => {
           </div>
           <div className="hero__image-wrapper">
             <img
-              src="/profile.png"
+              src="/profile.jpg"
               alt="Rakhi Kumari - Data Scientist"
               className="hero__image"
             />
