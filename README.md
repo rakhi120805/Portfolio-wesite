@@ -74,26 +74,34 @@ Open **http://localhost:5173** in your browser.
 
 ## 📸 Docker Build & Run — Screenshots
 
-### 1. Docker Build (16/16 layers — FINISHED)
+### 1. Docker File
 
 <img width="773" height="788" alt="Screenshot 2026-04-26 222303" src="https://github.com/user-attachments/assets/1d7a7f9c-09b2-4123-9ea1-b12148220c61" />
 
 
-### 2. Nginx Server Startup
+### 2. Docker build
 
-![Nginx starting inside the container with worker processes spawned](docs/docker-build-2.png)
+<img width="1463" height="698" alt="Screenshot 2026-04-26 221354" src="https://github.com/user-attachments/assets/00130e7f-fc60-4648-80e3-31f1f9357777" />
+
 
 ### 3. `docker ps` — Container Running
 
-![docker ps output confirming container is up and port 5173:80 is mapped](docs/docker-ps.png)
+<img width="1507" height="1028" alt="Screenshot 2026-04-26 221418" src="https://github.com/user-attachments/assets/44ff9ecb-b6e9-449e-b809-b5c968c16485" />
+
 
 ### 4. Docker Desktop — Containers View
 
-![Docker Desktop showing portfolio-website container running (confident_roentgen)](docs/docker-desktop-containers.png)
+<img width="1919" height="1079" alt="Screenshot 2026-04-26 221928" src="https://github.com/user-attachments/assets/3916c5a4-c565-4d74-9a0d-a45ba8a93d3b" />
+
 
 ### 5. Docker Desktop — Image Layers (93.51 MB)
 
-![Docker Desktop image inspection showing 25 layers and 93.51 MB final image size](docs/docker-desktop-image.png)
+<img width="1919" height="943" alt="Screenshot 2026-04-26 222118" src="https://github.com/user-attachments/assets/2d5ffedc-f042-481d-9d22-5e4ce977cec7" />
+
+### 6. Docker ps 
+
+<img width="1460" height="157" alt="Screenshot 2026-04-26 221800" src="https://github.com/user-attachments/assets/1287d845-926a-4742-add4-51db3504e326" />
+
 
 ---
 
