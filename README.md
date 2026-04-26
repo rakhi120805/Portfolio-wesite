@@ -1,77 +1,141 @@
-# Portfolio-wesite
+# 🌐 Portfolio Website
 
-This is my portfolio to show case my skills and projects 
+> A modern, interactive portfolio built with **React**, **TypeScript**, **Vite**, and **Three.js** — containerised with **Docker** and served via **Nginx**.
 
-## React + TypeScript + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✨ Tech Stack
 
-Currently, two official plugins are available:
+| Category | Technology |
+|---|---|
+| UI Framework | React 19 + TypeScript |
+| Build Tool | Vite 8 |
+| 3D / Animation | Three.js · @react-three/fiber · @react-three/drei · GSAP |
+| Styling | Vanilla CSS |
+| Containerisation | Docker (multi-stage build) |
+| Web Server | Nginx (Alpine) |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Getting Started (Local Development)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js ≥ 18
+- npm
 
-## Expanding the ESLint configuration
+### Install & Run
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# 1. Clone the repo
+git clone https://github.com/rakhi120805/Portfolio-wesite.git
+cd Portfolio-wesite
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# 2. Install dependencies
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 3. Start the dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at **http://localhost:5173**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Other Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+|---|---|
+| `npm run build` | Production build (TypeScript check + Vite bundle) |
+| `npm run preview` | Locally preview the production build |
+| `npm run lint` | Run ESLint |
+
+---
+
+## 🐳 Docker Deployment
+
+The project ships with a **multi-stage Dockerfile** that produces a lean production image (~93 MB):
+
 ```
+Stage 1 — node:20-alpine   →  npm ci + npm run build
+Stage 2 — nginx:stable-alpine  →  serves /dist on port 80
+```
+
+### Build & Run
+
+```bash
+# Build the image
+docker build -t portfolio-website .
+
+# Run the container (maps container port 80 → host port 5173)
+docker run -p 5173:80 portfolio-website
+```
+
+Open **http://localhost:5173** in your browser.
+
+---
+
+## 📸 Docker Build & Run — Screenshots
+
+### 1. Docker Build (16/16 layers — FINISHED)
+
+![Docker build output showing all 16 build steps completing successfully](docs/docker-build-1.png)
+
+### 2. Nginx Server Startup
+
+![Nginx starting inside the container with worker processes spawned](docs/docker-build-2.png)
+
+### 3. `docker ps` — Container Running
+
+![docker ps output confirming container is up and port 5173:80 is mapped](docs/docker-ps.png)
+
+### 4. Docker Desktop — Containers View
+
+![Docker Desktop showing portfolio-website container running (confident_roentgen)](docs/docker-desktop-containers.png)
+
+### 5. Docker Desktop — Image Layers (93.51 MB)
+
+![Docker Desktop image inspection showing 25 layers and 93.51 MB final image size](docs/docker-desktop-image.png)
+
+---
+
+## 📁 Project Structure
+
+```
+portfolio3/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # React components
+│   ├── assets/          # Images, fonts, etc.
+│   └── main.tsx         # App entry point
+├── Dockerfile           # Multi-stage Docker build
+├── nginx.conf           # SPA-friendly Nginx config
+├── .dockerignore        # Excludes node_modules / dist from build context
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+---
+
+## 📦 Docker Image Details
+
+| Property | Value |
+|---|---|
+| Base (build) | `node:20-alpine` |
+| Base (serve) | `nginx:stable-alpine` |
+| Final image size | **~93.51 MB** |
+| Exposed port | `80` |
+| Nginx version | 1.30.0 |
+
+---
+
+## 🛠️ Nginx Configuration
+
+The bundled `nginx.conf` provides:
+- ✅ **SPA fallback** — all routes redirect to `index.html` (React Router compatible)
+- ✅ **Gzip compression** for JS / CSS / SVG / fonts
+- ✅ **1-year cache headers** for hashed static assets
+
+---
+
+## 📝 License
+
+MIT © Rakhi
