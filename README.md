@@ -76,7 +76,8 @@ Open **http://localhost:5173** in your browser.
 
 ### 1. Docker Build (16/16 layers — FINISHED)
 
-![Docker build output showing all 16 build steps completing successfully](docs/docker-build-1.png)
+<img width="773" height="788" alt="Screenshot 2026-04-26 222303" src="https://github.com/user-attachments/assets/1d7a7f9c-09b2-4123-9ea1-b12148220c61" />
+
 
 ### 2. Nginx Server Startup
 
